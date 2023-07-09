@@ -1,0 +1,29 @@
+-- Table structure for game storage
+CREATE TABLE GameStorage (
+    GameID INT PRIMARY KEY,
+    GameName VARCHAR(50),
+    TotalPlayers INT,
+    TotalStorageUsed DECIMAL(10,2),
+    LastUpdated DATETIME
+);
+
+-- Insert sample data
+INSERT INTO GameStorage (GameID, GameName, TotalPlayers, TotalStorageUsed, LastUpdated)
+VALUES 
+    (1, 'Game of Thrones', 1000, 245.75, '2023-06-30 14:30:00'),
+    (2, 'World of Warcraft', 5000, 186.23, '2023-07-01 10:45:00'),
+    (3, 'Minecraft', 20000, 402.51, '2023-07-02 18:20:00');
+
+-- Select all game storage data
+SELECT * FROM GameStorage;
+
+-- Update storage information for a specific game
+UPDATE GameStorage
+SET TotalPlayers = 1500,
+    TotalStorageUsed = 311.87,
+    LastUpdated = '2023-07-03 09:10:00'
+WHERE GameID = 2;
+
+-- Delete storage data for a specific game
+DELETE FROM GameStorage
+WHERE GameID = 3;
